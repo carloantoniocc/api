@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V2;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Http\Resources\V1\PostResource;
+
+use App\Http\Resources\V2\PostResource;
+use App\Http\Resources\V2\PostCollection;
 
 class PostController extends Controller
 {
@@ -16,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResource::collection(Post::latest()->paginate());
+        //
     }
 
     /**
@@ -61,10 +63,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-
-        return response()->json([
-            'message' => 'Success'            
-        ],204);
+        //
     }
 }
